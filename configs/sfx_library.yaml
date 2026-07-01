@@ -1,0 +1,358 @@
+# ==============================================================================
+# 音效素材库索引  sfx_library.yaml
+# ------------------------------------------------------------------------------
+# 适用域：知识分享类口播（knowledge voiceover）
+# 组织方式：参考剪映「情绪 × 强调用途」双维度分类，每个音效标注可搜索标签
+# 配套文件：
+#   - configs/sfx_rules.yaml      L1结构音效 + BGM 规则
+#   - app/services/subtitle_service.py  L2 重点词 → sfx_file 映射（应与本库一致）
+#   - app/services/audio_mix_service.py  按 type/name 查找文件的实现
+# 查找规则：
+#   - 程序查找：file 字段相对 assets/sfx/ 的路径，与现有代码完全兼容
+#   - 语义查找：按 category / emotion / function / tags 过滤
+# 维护规范（新增音效时）：
+#   1. 文件放入 assets/sfx/<子目录>/
+#   2. 在下方 sfx 列表追加一条，至少填 file / category / emotion / function / tags
+#   3. 时长 >3s 且非转场用途的，默认放进 excluded 并写明原因
+# ==============================================================================
+
+meta:
+  version: 1
+  domain: "knowledge_voiceover"        # 知识分享类口播
+  base_dir: "assets/sfx"
+  last_updated: "2026-06-17"
+  selection_rule: |
+    知识口播音效必须「短、准、不喧宾夺主」：
+      - 强调/点状音效 ≤ 1.5s
+      - 转场音效 ≤ 6s
+      - 时长过长的 loop/bed、过于具象（门铃/电影感）一律排除
+
+# ------------------------------------------------------------------------------
+# 维度词汇表（受控词表，便于检索聚合）
+# ------------------------------------------------------------------------------
+vocab:
+
+  # 情绪维度 emotion —— 音效本身的情绪色彩
+  emotion:
+    - lighthearted          # 轻松/趣味
+    - neutral_focused       # 中性/专注（讲解常态）
+    - calm                  # 平静/舒缓
+    - tension_reversal      # 紧张/反转
+    - serious_warning       # 严肃/警示
+    - surprise_insight      # 惊喜/灵感
+    - insight_sublime       # 顿悟/升华
+    - impact                # 震撼/冲击
+    - positive_affirm       # 肯定/成就
+
+  # 强调用途维度 function —— 在口播中承担的叙事功能
+  function:
+    - emphasis_key          # 强调重点词/关键概念
+    - impact_punchline      # 金句落点/震撼一击
+    - transition            # 转场/段落切换
+    - counting_list         # 列表计数/步骤
+    - insight_conclusion    # 顿悟/结论/核心观点
+    - notification          # 提示/新信息
+    - lead_in               # 引出/指向
+    - example_fun           # 举例/趣味点缀
+    - warning_risk          # 警告/风险提示
+    - confirm_achieve       # 确认/达成
+
+  # 强度 intensity —— 听感冲击力，用于排序与去重
+  intensity:
+    - low                   # 轻点，可高频次使用
+    - medium                # 中等，常规强调
+    - high                  # 强冲击，每条视频少量
+
+# ==============================================================================
+# 入库音效（已筛选，适合知识口播）
+# 顺序：按 category 分组，组内按时长升序
+# ==============================================================================
+sfx:
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # POP 类 —— 点状强调主力（最常用）
+  # ──────────────────────────────────────────────────────────────────────────
+  - id: pop_explainer
+    file: pop/pop_explainer.wav
+    duration_s: 0.18
+    category: emphasis
+    emotion: [neutral_focused]
+    function: [emphasis_key]
+    intensity: low
+    tags: [pop, 泡泡, 干货, 讲解, 知识点, 短促, 点状, explainer, knowledge]
+    scenarios: ["讲到干货知识点时轻点一下", "罗列方法/步骤时的轻强调"]
+    recommended_volume_db: -22
+    in_use_by: ["L2:pain_point"]
+    note: 全库最短最干净的强调音，高频次使用不腻
+
+  - id: pop_dry
+    file: pop/pop_dry.wav
+    duration_s: 0.30
+    category: emphasis
+    emotion: [neutral_focused]
+    function: [counting_list, emphasis_key]
+    intensity: low
+    tags: [pop, 干燥, 数字, 计数, 列表, 第一第二, 短促, dry, number]
+    scenarios: ["数字强调（3倍、50%）", "列表项第一/第二/第三计数"]
+    recommended_volume_db: -22
+    in_use_by: ["L2:number"]
+    note: 比 explainer 略厚，适合数字与序号
+
+  - id: pop_bubble
+    file: pop/pop_bubble.wav
+    duration_s: 0.38
+    category: lighthearted
+    emotion: [lighthearted]
+    function: [example_fun]
+    intensity: low
+    tags: [pop, 气泡, 轻松, 趣味, 举例, 比喻, 可爱, bubble, cute]
+    scenarios: ["举例『比如说…』", "轻松过渡/幽默点缀"]
+    recommended_volume_db: -24
+    in_use_by: []
+    note: 唯一的轻松情绪音，调剂节奏用
+
+  - id: pop_long
+    file: pop/pop_long.wav
+    duration_s: 0.48
+    category: impact
+    emotion: [impact]
+    function: [impact_punchline, emphasis_key]
+    intensity: high
+    tags: [pop, 长, 冲击, 震撼, 金句, 落点, 重音, long, punch, hit]
+    scenarios: ["金句落点重击", "震撼词（炸裂/颠覆/绝了）"]
+    recommended_volume_db: -20
+    in_use_by: ["L2:impact", "L2:action", "L3:rise"]
+    note: 冲击类主力，每条视频控制在 1-2 次
+
+  - id: pop_hard_click
+    file: pop/pop_hard_click.wav
+    duration_s: 1.17
+    category: emphasis
+    emotion: [serious_warning]
+    function: [warning_risk, emphasis_key]
+    intensity: medium
+    tags: [pop, 硬, 点击, 警示, 风险, 严重, 警告, hard, warning]
+    scenarios: ["警告『千万别…/一定不要…』", "踩坑/风险点强调"]
+    recommended_volume_db: -22
+    in_use_by: []
+    note: 偏硬的点击感，仅用于风险/警示语境
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # DING 类 —— 顿悟/提示/灵感
+  # ──────────────────────────────────────────────────────────────────────────
+  - id: ding_sparkle_hybrid
+    file: ding/ding_sparkle_hybrid.wav
+    duration_s: 1.25
+    category: insight
+    emotion: [surprise_insight]
+    function: [insight_conclusion, emphasis_key]
+    intensity: medium
+    tags: [ding, 闪光, 灵感, 亮点, 顿悟, 恍然大悟, sparkle, idea, aha]
+    scenarios: ["灵感闪现/恍然大悟", "亮出一个反常识观点"]
+    recommended_volume_db: -22
+    in_use_by: []
+    note: 短促带闪光感，比纯 sparkle 更紧凑，首选灵感音
+
+  - id: ding_3
+    file: ding/ding_3.wav
+    duration_s: 1.40
+    category: notification
+    emotion: [neutral_focused]
+    function: [notification]
+    intensity: low
+    tags: [ding, 提示, 铃, 通知, 新信息, 注意, bell, notify]
+    scenarios: ["引出一条新信息/新结论", "『注意，重点来了』"]
+    recommended_volume_db: -22
+    in_use_by: []
+    note: 纯提示铃，不带情绪，中性
+
+  - id: ding_uplifting_bells
+    file: ding/ding_uplifting_bells.wav
+    duration_s: 2.93
+    category: insight
+    emotion: [insight_sublime]
+    function: [insight_conclusion]
+    intensity: high
+    tags: [ding, 上扬, 铃音, 结论, 核心, 升华, 顿悟, 真相, uplifting, sublime]
+    scenarios: ["抛出核心结论/底层逻辑", "视频最高潮的顿悟点"]
+    recommended_volume_db: -22
+    in_use_by: ["L2:conclusion", "L3:impact"]
+    note: 上扬升华感，用于最重的结论，宁少勿多
+
+  - id: ding_sparkle
+    file: ding/ding_sparkle.wav
+    duration_s: 7.01
+    category: insight
+    emotion: [surprise_insight]
+    function: [insight_conclusion]
+    intensity: medium
+    tags: [ding, 闪光, 长, 灵感, 上升, 氛围, sparkle, rise, ambient]
+    scenarios: ["递进段落的氛围上升（备选 rise）"]
+    recommended_volume_db: -24
+    in_use_by: []
+    note: 较长，仅作 L3 rise 备选；点状强调请用 sparkle_hybrid
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # CLICK 类 —— 计数/确认
+  # ──────────────────────────────────────────────────────────────────────────
+  - id: click_check
+    file: click/click_check.wav
+    duration_s: 1.74
+    category: counting
+    emotion: [positive_affirm]
+    function: [confirm_achieve, counting_list]
+    intensity: low
+    tags: [click, 对勾, 确认, 完成, 步骤, 打钩, 正确, check, done]
+    scenarios: ["步骤完成打钩", "『这就是正确答案』确认感"]
+    recommended_volume_db: -22
+    in_use_by: []
+    note: 带确认感的点击，适合清单/步骤类内容
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # WHOOSH 类 —— 转场/引出/反转
+  # ──────────────────────────────────────────────────────────────────────────
+  - id: whoosh_arrow
+    file: whoosh/whoosh_arrow.wav
+    duration_s: 3.44
+    category: transition
+    emotion: [neutral_focused]
+    function: [lead_in, transition]
+    intensity: medium
+    tags: [whoosh, 箭头, 指向, 引出, 衔接, 段落, arrow, lead]
+    scenarios: ["引出下一个要点", "画面指向/箭头动效配合"]
+    recommended_volume_db: -24
+    in_use_by: []
+    note: 有方向感的转场，适合引出新段落
+
+  - id: whoosh_air
+    file: whoosh/whoosh_air.wav
+    duration_s: 5.02
+    category: transition
+    emotion: [calm]
+    function: [transition]
+    intensity: low
+    tags: [whoosh, 空气, 轻, 柔, 段落, 过渡, 章节, air, soft]
+    scenarios: ["章节之间的柔和过渡", "知识模块切换"]
+    recommended_volume_db: -26
+    in_use_by: []
+    note: 最柔的转场，不抢人声
+
+  - id: whoosh_fast
+    file: whoosh/whoosh_fast.wav
+    duration_s: 5.24
+    category: transition
+    emotion: [tension_reversal]
+    function: [transition]
+    intensity: medium
+    tags: [whoosh, 快, 反转, 切换, 但是, 然而, 转折, fast, reverse]
+    scenarios: ["『但是/然而』反转切换", "钩子→正文的快速转场"]
+    recommended_volume_db: -24
+    in_use_by: ["L2:reversal", "L1:transition"]
+    note: 反转/快切主力，当前系统已在用
+
+# ==============================================================================
+# 排除清单 —— 不适合知识口播，并注明原因（避免后人误用）
+# ==============================================================================
+excluded:
+
+  - file: click/click_classic.wav
+    duration_s: 21.95
+    reason: 时长 22s，实为 loop 床音而非点状点击，口播用不到
+
+  - file: click/click_select.wav
+    duration_s: 19.24
+    reason: 时长 19s 的 loop 床音，非瞬时选中音
+
+  - file: click/click_cool.wav
+    duration_s: 8.76
+    reason: 偏游戏/酷炫质感且偏长，与知识口播调性不符
+
+  - file: ding/ding_doorbell.wav
+    duration_s: 4.36
+    reason: 门铃过于具象，易让观众出戏
+
+  - file: notification/notif_bell.wav
+    duration_s: 22.36
+    reason: 时长 22s 的 loop 床音；短提示请用 ding/ding_3.wav
+
+  - file: whoosh/whoosh_cinematic.wav
+    duration_s: 19.11
+    reason: 电影感长床，知识口播不需要
+
+  - file: whoosh/whoosh_swirl.wav
+    duration_s: 14.08
+    reason: 14s 旋转长床，易喧宾夺主
+
+  # —— sfx_old_cinematic 整套为电影/混剪风格，非口播用途 ——
+  - file: sfx_old_cinematic/hit/hit_01.wav
+    reason: cinematic 套件，仅 L1 结构音效历史遗留，新流程勿扩展使用
+  - file: sfx_old_cinematic/hit/impact_01.wav
+    reason: 同上
+  - file: sfx_old_cinematic/hit/soft_boom_01.wav
+    reason: 同上（仅 sfx_rules.yaml 结尾 boom 在用）
+  - file: sfx_old_cinematic/hit/soft_hit_01.wav
+    reason: 同上
+  - file: sfx_old_cinematic/hit/soft_hit_02.wav
+    reason: 同上
+  - file: sfx_old_cinematic/rise/rise_01.wav
+    reason: 同上
+  - file: sfx_old_cinematic/whoosh/whoosh_01.wav
+    reason: 同上（仅 sfx_rules.yaml 转场在用）
+  - file: sfx_old_cinematic/whoosh/whoosh_reverse_01.wav
+    reason: 同上
+
+# ==============================================================================
+# 情绪 × 强调用途 推荐矩阵（快速查表，剪映式速查）
+# 行=情绪，列=功能，单元格=首选 id（可逗号分隔备选）
+# 空单元格表示当前库无对应音效（待补充）
+# ==============================================================================
+recommendation_matrix:
+
+  # ─ 强调类 ─
+  emphasis_key:
+    neutral_focused:   pop_explainer
+    lighthearted:      pop_bubble
+    serious_warning:   pop_hard_click
+    surprise_insight:  ding_sparkle_hybrid
+    impact:            pop_long
+
+  # ─ 金句落点 ─
+  impact_punchline:
+    impact:            pop_long
+    insight_sublime:   ding_uplifting_bells
+
+  # ─ 转场 ─
+  transition:
+    calm:              whoosh_air
+    neutral_focused:   whoosh_arrow
+    tension_reversal:  whoosh_fast
+
+  # ─ 计数/列表 ─
+  counting_list:
+    neutral_focused:   pop_dry
+    positive_affirm:   click_check
+
+  # ─ 顿悟/结论 ─
+  insight_conclusion:
+    surprise_insight:  ding_sparkle_hybrid
+    insight_sublime:   ding_uplifting_bells
+
+  # ─ 提示/通知 ─
+  notification:
+    neutral_focused:   ding_3
+
+  # ─ 引出/指向 ─
+  lead_in:
+    neutral_focused:   whoosh_arrow
+
+  # ─ 举例/趣味 ─
+  example_fun:
+    lighthearted:      pop_bubble
+
+  # ─ 警告/风险 ─
+  warning_risk:
+    serious_warning:   pop_hard_click
+
+  # ─ 确认/达成 ─
+  confirm_achieve:
+    positive_affirm:   click_check

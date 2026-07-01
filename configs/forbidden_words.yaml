@@ -1,0 +1,58 @@
+# 违禁词库
+# 分为三个等级：high（必须处理），medium（建议处理），low（视情况处理）
+# 每个词包含：word（词语），level（等级），action（处理方式）
+
+high:
+  # 政治/法律
+  - words: ["国家领导人", "政治敏感", "反动", "颠覆"]
+    action: delete
+
+  # 色情/低俗
+  - words: ["色情", "裸体", "淫秽"]
+    action: delete
+
+  # 暴力/恐怖
+  - words: ["恐怖袭击", "杀人", "爆炸"]
+    action: delete
+
+  # 赌博
+  - words: ["赌博", "赌场", "下注", "庄家"]
+    action: delete
+
+  # 毒品
+  - words: ["毒品", "大麻", "海洛因", "冰毒"]
+    action: delete
+
+  # 诈骗
+  - words: ["诈骗", "骗钱", "套路贷"]
+    action: delete
+
+  # 医疗违法
+  - words: ["处方药", "假药", "无证行医"]
+    action: delete
+
+medium:
+  # 广告极限词
+  - words: ["最便宜", "最低价", "史上最强", "世界第一", "全国第一", "国家级", "全网最低"]
+    action: beep
+
+  # 虚假承诺
+  - words: ["包过", "百分百", "稳赚不赔", "零风险", "保本保息"]
+    action: beep
+
+  # 引流词汇
+  - words: ["加微信", "私聊我", "转账给我", "扫码领"]
+    action: mute
+
+  # 医疗保健
+  - words: ["治愈率", "有效率", "疗效", "偏方"]
+    action: beep
+
+low:
+  # 轻微夸大
+  - words: ["超级好用", "绝了", "无敌", "天花板"]
+    action: keep
+
+  # 网络用语（可能敏感）
+  - words: ["韭菜", "割肉", "血亏"]
+    action: keep

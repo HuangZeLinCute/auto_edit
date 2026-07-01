@@ -1,0 +1,33 @@
+{
+  "project_id": "proj_7b0c37d3c58f",
+  "params": {
+    "platform": "douyin",
+    "style": "knowledge",
+    "target_duration": 0
+  },
+  "completed_steps": [
+    "preprocess",
+    "asr",
+    "analyze",
+    "select_clip",
+    "trim_script",
+    "generate_visuals",
+    "generate_subtitles",
+    "plan_audio",
+    "render",
+    "generate_titles"
+  ],
+  "current_step": "generate_titles",
+  "error": null,
+  "source_video": "C:\\Users\\14181\\Desktop\\auto_edit\\storage\\uploads\\proj_7b0c37d3c58f\\input.mp4",
+  "audio_path": "C:\\Users\\14181\\Desktop\\auto_edit\\storage\\temp\\proj_7b0c37d3c58f\\audio.wav",
+  "transcript": true,
+  "analysis": true,
+  "selected_clip_id": "clip_002",
+  "clip_plan": true,
+  "edit_decision": true,
+  "subtitle_plan": true,
+  "audio_plan": true,
+  "render_result": true,
+  "output_package": true
+}

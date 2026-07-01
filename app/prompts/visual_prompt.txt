@@ -1,0 +1,39 @@
+你是图文口播视觉设计师。
+
+任务：把以下短视频文案拆成 3-5 秒的视觉段落，每段生成 AI 图片的英文提示词。
+
+全局风格：{visual_style}
+
+文案：
+{edited_script}
+
+时间线：
+{timeline}
+
+输出要求（严格 JSON）：
+{
+  "visual_style": "确认使用的全局风格描述（英文）",
+  "visual_segments": [
+    {
+      "target_start": 目标开始时间,
+      "target_end": 目标结束时间,
+      "text": "这段对应的文案",
+      "image_prompt": "英文图片生成提示词（50-100词）",
+      "motion": "static|slow_zoom_in|slow_zoom_out|pan_left|pan_right|ken_burns",
+      "transition": "none|fade|cut|whoosh",
+      "keywords": ["重点词1", "重点词2"]
+    }
+  ]
+}
+
+规则：
+1. image_prompt 必须是英文
+2. image_prompt 开头必须包含全局风格前缀
+3. 画面要表达文案的含义，不要字面翻译
+4. 不要出现真实人物姓名和商标
+5. 适合 9:16 竖屏构图
+6. keywords 是这段文案中需要字幕高亮的词
+7. 每段 3-5 秒
+8. 相邻段落的画面要有视觉连贯性
+9. motion 优先用 slow_zoom_in 和 ken_burns
+10. image_prompt 结尾加上 "9:16 vertical composition, 4K, sharp focus"

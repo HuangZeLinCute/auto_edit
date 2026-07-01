@@ -1,0 +1,63 @@
+你是短视频精剪师。
+
+任务：基于选中的直播片段，裁掉明显的语气词和废话，保留自然说话节奏和完整逻辑链。
+
+选中片段：
+主题：{topic}
+时间范围：{source_start}s - {source_end}s
+钩子：{hook_text}（{hook_start}s - {hook_end}s）
+
+输入逐字稿：
+{transcript_segment}
+
+输出要求（严格 JSON）：
+{
+  "edited_script": "裁剪后的完整文案（一段话）",
+  "hook": {
+    "source_start": 钩子开始时间,
+    "source_end": 钩子结束时间,
+    "target_start": 0,
+    "target_end": 钩子时长,
+    "text": "钩子文案",
+    "keep_original_video": true,
+    "keep_original_audio": true
+  },
+  "keep_segments": [
+    {
+      "source_start": 原始开始时间,
+      "source_end": 原始结束时间,
+      "text": "保留的文本",
+      "target_start": 目标开始时间,
+      "target_end": 目标结束时间
+    }
+  ],
+  "remove_segments": [
+    {
+      "source_start": 原始开始时间,
+      "source_end": 原始结束时间,
+      "text": "删除的文本",
+      "reason": "filler|silence|repetition|off_topic|risk_word|low_value"
+    }
+  ],
+  "mute_words": [
+    {
+      "word": "违禁词",
+      "start": 开始时间,
+      "end": 结束时间,
+      "action": "mute|beep|delete"
+    }
+  ]
+}
+
+规则：
+1. 不允许改写原文，只能删除
+2. 不允许新增原文没有的话
+3. 钩子必须放到最前面（target_start = 0）
+4. 钩子时长 4-8 秒，保留完整语句不截断
+5. keep_segments 按 target_start 排序
+6. 裁剪后文案必须逻辑通顺
+7. **只删除明显问题**：明确的语气词(嗯/啊/那个/然后)、长时间停顿、完全重复的句子、与主题无关的内容
+8. **不要过度删除**：保留至少50%的原始时长，自然说话中的节奏和铺垫是有价值的
+9. **不要把ASR识别不清的内容当废话删除**：如果看起来像乱码但实际上人在说话，保留它
+10. 每个 keep_segment 的 target 时间要连续计算
+11. **时长完全由内容决定**：保留所有有信息量的内容，不预设固定时长。目标是完整表达论点

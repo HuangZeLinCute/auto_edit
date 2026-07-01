@@ -1,0 +1,51 @@
+# 视觉风格预设
+
+business_tech:
+  name: "商业科技风"
+  description: "适合 AI、创业、商业认知内容"
+  prefix: "cinematic tech documentary style"
+  mood: "professional, insightful, modern"
+  palette: "dark blue, gold, white, silver"
+  suffix: "dark background with golden highlights, clean composition, dramatic lighting, 9:16 vertical composition, 4K, sharp focus"
+  bgm_category: "business"
+  recommended_for: ["商业", "创业", "AI", "科技", "认知"]
+
+knowledge_infographic:
+  name: "知识图解风"
+  description: "适合教程、方法论、知识分享"
+  prefix: "clean minimal infographic illustration style"
+  mood: "educational, clear, organized"
+  palette: "white, light blue, green, soft grey"
+  suffix: "light background, clear visual hierarchy, modern flat design, 9:16 vertical composition, 4K, sharp focus"
+  bgm_category: "knowledge"
+  recommended_for: ["教程", "方法", "技巧", "干货"]
+
+emotional_impact:
+  name: "情绪冲击风"
+  description: "适合高燃、焦虑、痛点内容"
+  prefix: "high contrast dramatic cinematic style"
+  mood: "powerful, urgent, intense"
+  palette: "black, red, gold, deep blue"
+  suffix: "dramatic lighting, bold composition, high contrast shadows, 9:16 vertical composition, 4K, sharp focus"
+  bgm_category: "high_energy"
+  recommended_for: ["高燃", "焦虑", "痛点", "情绪"]
+
+workplace_career:
+  name: "职场认知风"
+  description: "适合职场、副业、个人成长"
+  prefix: "modern business illustration style"
+  mood: "relatable, practical, warm"
+  palette: "warm grey, blue, orange, cream"
+  suffix: "warm lighting, professional atmosphere, realistic illustration, 9:16 vertical composition, 4K, sharp focus"
+  bgm_category: "business"
+  recommended_for: ["职场", "副业", "成长", "认知"]
+
+text_card:
+  name: "极简文字卡片风"
+  description: "最低成本，最高稳定性，纯文字卡片"
+  prefix: "gradient background with bold Chinese typography"
+  mood: "clean, direct, impactful"
+  palette: "gradient purple-blue, white, yellow highlight"
+  suffix: "modern sans-serif font, highlighted keywords, minimalist layout, 9:16 vertical composition, 4K, sharp focus"
+  bgm_category: "knowledge"
+  recommended_for: ["任何类型"]

@@ -1,0 +1,54 @@
+# 音效规则配置 v2
+# L1 结构音效和 L2 重点词音效由代码自动处理（audio_mix_service.py）
+# 本文件仅保留 BGM 配置和全局参数
+
+bgm:
+  default_volume_db: -24
+  fade_in_s: 1.0
+  fade_out_s: 2.0
+  duck_on_sfx: true
+  duck_db: -6
+  duck_duration_s: 0.5
+
+  categories:
+    knowledge:
+      description: "知识干货类"
+      tempo: "90-110bpm"
+      mood: "light, tech, focused"
+      tags: ["教程", "干货", "方法"]
+
+    business:
+      description: "商业认知类"
+      tempo: "80-100bpm"
+      mood: "tech, deep, professional"
+      tags: ["商业", "创业", "AI", "认知"]
+
+    emotional:
+      description: "情绪共鸣类"
+      tempo: "70-90bpm"
+      mood: "piano, ambient, warm"
+      tags: ["情感", "共鸣", "成长", "焦虑", "心理"]
+
+    high_energy:
+      description: "高燃激情类"
+      tempo: "120-140bpm"
+      mood: "drums, fast, powerful"
+      tags: ["高燃", "激励", "突破"]
+
+# L1 结构音效参数
+structural:
+  hook_start:
+    file: "hit_01.wav"
+    volume_db: -8
+  transition:
+    file: "whoosh_01.wav"
+    volume_db: -14
+  ending:
+    file: "soft_boom_01.wav"
+    volume_db: -10
+    offset_from_end: 2.5
+
+# 全局约束
+constraints:
+  global_min_interval: 0.5
+  max_total_sfx: 12

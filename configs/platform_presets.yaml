@@ -1,0 +1,71 @@
+# 平台参数预设
+
+douyin:
+  name: "抖音"
+  aspect_ratio: "9:16"
+  resolution: "1080x1920"
+  fps: 30
+  max_duration_s: 300
+  recommended_duration_s: [30, 60, 90]
+  title_max_length: 30
+  topic_count: [3, 5]
+  video_codec: "libx264"
+  audio_codec: "aac"
+  audio_bitrate: "128k"
+  crf: 23
+
+xiaohongshu:
+  name: "小红书"
+  aspect_ratio: "3:4"
+  resolution: "1080x1440"
+  fps: 30
+  max_duration_s: 300
+  recommended_duration_s: [30, 60]
+  title_max_length: 20
+  topic_count: [5, 8]
+  video_codec: "libx264"
+  audio_codec: "aac"
+  audio_bitrate: "128k"
+  crf: 23
+
+shipinhao:
+  name: "视频号"
+  aspect_ratio: "9:16"
+  resolution: "1080x1920"
+  fps: 30
+  max_duration_s: 900
+  recommended_duration_s: [60, 90, 180]
+  title_max_length: 30
+  topic_count: [3, 5]
+  video_codec: "libx264"
+  audio_codec: "aac"
+  audio_bitrate: "128k"
+  crf: 23
+
+bilibili:
+  name: "B站"
+  aspect_ratio: "16:9"
+  resolution: "1920x1080"
+  fps: 30
+  max_duration_s: 3600
+  recommended_duration_s: [60, 180, 300]
+  title_max_length: 80
+  topic_count: [5, 10]
+  video_codec: "libx264"
+  audio_codec: "aac"
+  audio_bitrate: "192k"
+  crf: 20
+
+kuaishou:
+  name: "快手"
+  aspect_ratio: "9:16"
+  resolution: "1080x1920"
+  fps: 30
+  max_duration_s: 300
+  recommended_duration_s: [30, 60, 90]
+  title_max_length: 30
+  topic_count: [3, 5]
+  video_codec: "libx264"
+  audio_codec: "aac"
+  audio_bitrate: "128k"
+  crf: 23

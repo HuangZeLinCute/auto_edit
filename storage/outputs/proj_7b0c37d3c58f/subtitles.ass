@@ -1,0 +1,77 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Alibaba PuHuiTi,72,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,6,3,2,30,30,60,1
+Style: Highlight,Alibaba PuHuiTi,72,&H0000D8FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,120,120,2,0,1,6,3,2,30,30,60,1
+Style: GoldHit,Alibaba PuHuiTi,90,&H0000D8FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,150,150,2,0,1,8,4,2,30,30,60,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.80,Default,,0,0,0,,名为可口可乐
+Dialogue: 0,0:00:00.80,0:00:01.37,Default,,0,0,0,,丁上了
+Dialogue: 0,0:00:01.37,0:00:02.04,Default,,0,0,0,,欧洲博伙的
+Dialogue: 0,0:00:02.04,0:00:02.85,Default,,0,0,0,,马里亚尼
+Dialogue: 0,0:00:02.85,0:00:03.64,Default,,0,0,0,,科海一红酒
+Dialogue: 0,0:00:03.64,0:00:04.62,Default,,0,0,0,,{\rGoldHit}1885{\rDefault}年
+Dialogue: 0,0:00:04.62,0:00:05.01,Default,,0,0,0,,红波队
+Dialogue: 0,0:00:05.01,0:00:05.78,Default,,0,0,0,,改良了九个配方
+Dialogue: 0,0:00:05.78,0:00:06.29,Default,,0,0,0,,{\rHighlight}根本{\rDefault}是在
+Dialogue: 0,0:00:06.29,0:00:07.04,Default,,0,0,0,,美洋四红酒
+Dialogue: 0,0:00:07.04,0:00:07.63,Default,,0,0,0,,六好可
+Dialogue: 0,0:00:07.63,0:00:08.48,Default,,0,0,0,,科海一的技术上
+Dialogue: 0,0:00:08.48,0:00:10.32,Default,,0,0,0,,直接加码到{\rGoldHit}8{\rDefault}.{\rGoldHit}5{\rDefault}好可
+Dialogue: 0,0:00:10.32,0:00:10.85,Default,,0,0,0,,除此之外
+Dialogue: 0,0:00:10.85,0:00:11.46,Default,,0,0,0,,他后面里面
+Dialogue: 0,0:00:11.46,0:00:12.06,Default,,0,0,0,,加了两种
+Dialogue: 0,0:00:12.06,0:00:13.32,Default,,0,0,0,,相当生末的元素
+Dialogue: 0,0:00:13.32,0:00:14.90,Default,,0,0,0,,其一是非洲可乐国
+Dialogue: 0,0:00:14.90,0:00:16.32,Default,,0,0,0,,贴人的咖啡饮炸达
+Dialogue: 0,0:00:16.32,0:00:17.62,Default,,0,0,0,,其二是南美的达连
+Dialogue: 0,0:00:17.62,0:00:18.92,Default,,0,0,0,,{\rHighlight}但是{\rDefault}草幼学里
+Dialogue: 0,0:00:18.92,0:00:19.92,Default,,0,0,0,,住民的最新要
+Dialogue: 0,0:00:19.92,0:00:20.46,Default,,0,0,0,,这次以后
+Dialogue: 0,0:00:20.46,0:00:21.12,Default,,0,0,0,,一周混合了
+Dialogue: 0,0:00:21.12,0:00:21.64,Default,,0,0,0,,咖啡饮
+Dialogue: 0,0:00:21.64,0:00:22.78,Default,,0,0,0,,可海一和最新要的
+Dialogue: 0,0:00:22.78,0:00:23.60,Default,,0,0,0,,超级红酒
+Dialogue: 0,0:00:23.60,0:00:24.12,Default,,0,0,0,,搭震的男人
+Dialogue: 0,0:00:24.12,0:00:24.73,Default,,0,0,0,,重振熊
+Dialogue: 0,0:00:24.73,0:00:25.73,Default,,0,0,0,,符合剑调马飞
+Dialogue: 0,0:00:25.73,0:00:26.53,Default,,0,0,0,,争议的起号
+Dialogue: 0,0:00:26.53,0:00:27.69,Default,,0,0,0,,开始彻底风明
+Dialogue: 0,0:00:27.69,0:00:28.92,Default,,0,0,0,,美麗街市场
+Dialogue: 0,0:00:28.92,0:00:29.32,Default,,0,0,0,,蛮
+Dialogue: 0,0:00:29.32,0:00:30.05,Default,,0,0,0,,并没有
+Dialogue: 0,0:00:30.05,0:00:30.92,Default,,0,0,0,,就在{\rGoldHit}1886{\rDefault}年
+Dialogue: 0,0:00:30.92,0:00:31.50,Default,,0,0,0,,红波队
+Dialogue: 0,0:00:31.50,0:00:32.75,Default,,0,0,0,,收到了一个坏小戏
+Dialogue: 0,0:00:32.75,0:00:33.34,Default,,0,0,0,,他所在的
+Dialogue: 0,0:00:33.34,0:00:34.14,Default,,0,0,0,,亚特兰大使
+Dialogue: 0,0:00:34.14,0:00:34.53,Default,,0,0,0,,通过了
+Dialogue: 0,0:00:34.53,0:00:34.93,Default,,0,0,0,,进九
+Dialogue: 0,0:00:34.93,0:00:35.56,Default,,0,0,0,,令科人们
+Dialogue: 0,0:00:35.56,0:00:37.14,Default,,0,0,0,,资责量就突然犯法了
+Dialogue: 0,0:00:37.14,0:00:38.03,Default,,0,0,0,,但好消息是
+Dialogue: 0,0:00:38.03,0:00:38.43,Default,,0,0,0,,可卡
+Dialogue: 0,0:00:38.43,0:00:39.21,Default,,0,0,0,,应在当地
+Dialogue: 0,0:00:39.21,0:00:40.71,Default,,0,0,0,,那可是相当合法
+Dialogue: 0,0:00:40.71,0:00:41.02,Default,,0,0,0,,于是
+Dialogue: 0,0:00:41.02,0:00:41.42,Default,,0,0,0,,红波队
+Dialogue: 0,0:00:41.42,0:00:42.67,Default,,0,0,0,,眼睛一转选了个点子
+Dialogue: 0,0:00:42.67,0:00:43.71,Default,,0,0,0,,它是把原配方里的
+Dialogue: 0,0:00:43.71,0:00:44.82,Default,,0,0,0,,红酒彻底抛弃
+Dialogue: 0,0:00:44.82,0:00:46.38,Default,,0,0,0,,转而加入苏当水和糖江
+Dialogue: 0,0:00:46.38,0:00:47.06,Default,,0,0,0,,最可卡
+Dialogue: 0,0:00:47.06,0:00:47.46,Default,,0,0,0,,运量
+Dialogue: 0,0:00:47.46,0:00:48.60,Default,,0,0,0,,谷科和咖啡饮
+Dialogue: 0,0:00:48.60,0:00:48.78,Default,,0,0,0,,原料
+Dialogue: 0,0:00:48.78,0:00:50.02,Default,,0,0,0,,可乐国连大产
+Dialogue: 0,0:00:50.02,0:00:51.10,Default,,0,0,0,,品卖一点结合
+Dialogue: 0,0:00:51.10,0:00:52.10,Default,,0,0,0,,为自己发明的这款
+Dialogue: 0,0:00:52.10,0:00:53.02,Default,,0,0,0,,小甜水面
